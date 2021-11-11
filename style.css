@@ -1,0 +1,235 @@
+:root {
+  --cor-primaria:#ee2211;
+  --cor-primaria-escura:#900;
+  --fundo:#f7f7f7;
+  --fundo2: #ffffff;
+  --texto-padrao: #111111;
+  --texto-titulos: #000000;
+  --subtitulo:rgba(0,0,0,0.2);
+  --onda:url(img/onda-clara.svg);
+}
+@media (prefers-color-scheme: dark){
+  :root {
+    --fundo:#111111;
+    --fundo2: #000000;
+    --texto-padrao: #ffffff;
+    --texto-titulos: #ffffff;
+    --subtitulo:rgba(255, 255, 255, 0.2);
+    --onda:url(img/onda-escura.svg);
+  }
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  background: var(--fundo);
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+p {
+  color: var(--texto-padrao);
+}
+h1,h2,h3 {
+  color: var(--texto-titulos);
+}
+/* Parte do TOPO / Menu */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header-logo {
+  margin: 4rem;
+}
+.header-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+}
+.header-menu a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--texto-padrao);
+  padding: 1rem 2rem;
+  background-color: var(--fundo2);
+  border-radius: 4px;
+  display: block;
+  font-size: 18px;
+  border: 3px solid var(--fundo2);
+}
+.header-menu a:hover {
+  border-color: var(--cor-primaria);
+}
+/* Conteudo Geral/Main */
+
+.conteudo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1000px;
+}
+.conteudo-introducao {
+  padding: 40px;
+  background-color: var(--fundo2);
+  text-align: right;
+}
+.conteudo-introducao h1 {
+  font-size: 2rem;
+  margin-top: 40px;
+  position: relative;
+}
+.conteudo-introducao h1::after{
+  content: " ";
+  width: 4rem;
+  height: 4px;
+  background-color: var(--cor-primaria);
+  position: absolute;
+  top: -50px;
+  right: -70px;
+}
+.conteudo-introducao p {
+  margin: 30px 0px 30px 0px;
+}
+.conteudo-introducao a {
+  background-color: var(--cor-primaria);
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  display: inline-block;
+}
+.conteudo-introducao a:hover {
+  background-color: var(--cor-primaria-escura);
+}
+h3 {
+  font-size: 18px;
+}
+.conteudo img {
+  max-width: 100%;
+  display: block;
+}
+.conteudo-subtitulo {
+  padding: 40px;
+  color: var(--subtitulo);
+  font-size: 64px;
+  text-align: right;
+  text-transform: uppercase;
+  align-self: center;
+  background-image: var(--onda);
+}
+/* Vantagens */
+
+.conteudo-vantagens {
+  padding: 40px;
+  background-color: var(--fundo2);
+}
+.conteudo-descricao {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  border-left: 4px solid var(--fundo2);
+}
+.conteudo-descricao:nth-child(odd){
+  background: var(--fundo);
+}
+.conteudo-descricao:hover {
+  border-color: var(--cor-primaria);
+}
+.conteudo-descricao img {
+  margin-right: 20px;
+}
+.conteudo-descricao p {
+  grid-column: 2;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* FOOTER */
+.rodape {
+  width: 100%;
+  background-color: var(--fundo2);
+  padding: 40px;
+  text-align: center;
+}
+
+/* Responsivo */
+
+@media (max-width: 950px){
+  .conteudo {
+    grid-template-columns: 1fr;
+  }
+  .conteudo-introducao {
+    text-align: left;
+  }
+  .conteudo-subtitulo {
+    text-align: center;
+    font-size: 3rem;
+  }
+  .conteudo-introducao h1::after {
+    display: none;
+  }
+  .conteudo-descricao p {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+}
+@media (max-width: 650px)  {
+  body {
+    gap: 40px;
+  }
+  .header-menu a {
+    padding: 0.4rem 0.8rem;
+  }
+  .conteudo-introducao h1 {
+    font-size: 1.8rem;
+  }
+  .conteudo-introducao p {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+  .conteudo-introducao a {
+    padding: 1rem 1.5rem;
+    font-size: 16px;
+  }
+  .conteudo-descricao p {
+    font-size: 17px;
+    line-height: 1.3;
+  }
+}
+@media (max-width: 450px) {
+  body {
+    gap: 20px;
+  }
+  .header-menu a {
+    font-size: 14px;
+  }
+  .conteudo-introducao h1 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+  }
+  .conteudo-introducao p {
+    font-size: 16px;
+    line-height: 1.3;
+    margin-top: 10px;
+    color: var(--texto-padrao);
+  }
+  .conteudo-introducao a {
+    padding: 1rem 1.5rem;
+    font-size: 13px;
+  }
+  .conteudo-subtitulo {
+    font-size: 2.5rem;
+  }
+  .conteudo-descricao p {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+}
